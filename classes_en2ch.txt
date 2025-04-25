@@ -1,0 +1,5 @@
+crack:裂纹
+lack_of_fusion:未熔合
+lack_of_penetration:未焊透
+porosity:气孔
+slag_inclusion:夹渣
