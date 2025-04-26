@@ -96,7 +96,7 @@ Source code released under the **GNU Affero General Public License v3.0** – se
 
 ### Patent notice
 Algorithm covered by Chinese patent **ZL 2023 1 0448168.8** is **free for academic and research purposes**.  
-**Commercial use** (including deployment in proprietary products or cloud services) **requires a separate written license** from the patent holder. Contact <your-email@example.com> for details.
+**Commercial use** (including deployment in proprietary products or cloud services) **requires a separate written license** from the patent holder. Contact <xyu@bit.edu.cn> for details.
 
 ---
 
