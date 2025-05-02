@@ -703,8 +703,9 @@ class LoginWindow(QMainWindow, Ui_LoginWindow):
 			win32api.MessageBox(0, '用户管理文件丢失！', '提示', win32con.MB_ICONWARNING)
 
 if __name__ == '__main__':
-	app = QApplication(sys.argv)
-	loginWin = LoginWindow()
-	loginWin.app = app
-	loginWin.show()
-	sys.exit(app.exec_())
+    app = QApplication(sys.argv)
+    user_id = 'admin'  # 可以随便给一个默认用户ID
+    mainWin = MainWindow(user_id)
+    mainWin.showMaximized()
+    sys.exit(app.exec_())
+

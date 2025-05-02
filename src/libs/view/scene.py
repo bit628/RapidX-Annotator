@@ -280,36 +280,36 @@ class GraphicsScene(QGraphicsScene):
 			else:
 				color = [self.image[y,x]]
 
-			'''
-			density = [float('%.2f' % (-1.2092e-11 * color[i]**3 + 8.8493e-8 * color[i]**2 - 1.3292e-3 * color[i] + 4.7786))
-					   for i in range(len(color))] # 灰度有效范围为0~4000
-			'''
-
-			density = [float('%.2f' % (9.880e-5 * (65535 - color[i]) - 5.040e-3))
-					   for i in range(len(color))]  # 灰度有效范围为5000~50000
-
-			density = np.array(density)
-			density[density > 5] = 5
-			density[density < 0.5] = 0.5
-			density = list(density)
-
-			if len(color) == 3:
-				if color[0] == color[1] and color[1] == color[2]:
-					color = color[0]
-					density = density[0]
-			else:
-				color = color[0]
-				density = density[0]
-
-		else:
-			color = 'None'
-			density = 'None'
-
-		message = 'x={}   y={}'.format(x, y)
-		message += '   color={}'.format(color)
-		message += '   density={}'.format(density)
-
-		self.mainWin.status.showMessage(message, 0)
+		# 	'''
+		# 	density = [float('%.2f' % (-1.2092e-11 * color[i]**3 + 8.8493e-8 * color[i]**2 - 1.3292e-3 * color[i] + 4.7786))
+		# 			   for i in range(len(color))] # 灰度有效范围为0~4000
+		# 	'''
+		#
+		# 	density = [float('%.2f' % (9.880e-5 * (65535 - color[i]) - 5.040e-3))
+		# 			   for i in range(len(color))]  # 灰度有效范围为5000~50000
+		#
+		# 	density = np.array(density)
+		# 	density[density > 5] = 5
+		# 	density[density < 0.5] = 0.5
+		# 	density = list(density)
+		#
+		# 	if len(color) == 3:
+		# 		if color[0] == color[1] and color[1] == color[2]:
+		# 			color = color[0]
+		# 			density = density[0]
+		# 	else:
+		# 		color = color[0]
+		# 		density = density[0]
+		#
+		# else:
+		# 	color = 'None'
+		# 	density = 'None'
+		#
+		# message = 'x={}   y={}'.format(x, y)
+		# message += '   color={}'.format(color)
+		# message += '   density={}'.format(density)
+		#
+		# self.mainWin.status.showMessage(message, 0)
 
 		if (self.press_1 or self.press_2) and self.press_mouse:
 			w = event.scenePos().x()-self.x0

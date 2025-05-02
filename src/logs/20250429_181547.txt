@@ -1,0 +1,1 @@
+2025-04-29 18:15:47,832 |     INFO | main.py:120 | MainWindow ID: 25044
