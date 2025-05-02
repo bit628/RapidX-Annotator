@@ -88,25 +88,6 @@ Most options can be overridden via environment variables – see inline comments
 
 ---
 
-## 🛣️ Roadmap
-- [ ] Instance‑segmentation mask editor with Bézier handles
-- [ ] Semi‑automatic polygon refinement (GrabCut / SAM)
-- [ ] Batch command‑line converter
-- [ ] PyInstaller one‑click Windows *.exe*
-
----
-
-## 🤝 Contributing
-Contributions are welcome!  
-Open an issue to discuss new features or bug fixes, then submit a pull request against **main**.
-
-```bash
-# lint & tests before pushing
-pip install -r requirements-dev.txt
-flake8
-pytest
-```
-
 ---
 
 ## 📄 License
