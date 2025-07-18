@@ -81,17 +81,20 @@ conda activate rapidx
 5. **Export annotations** – *File ▸ Export…* choose VOC, COCO, YOLO or Seg.
 
 ---
-🔄 Module Mapping to Flowcharts (Figures 2 & 4)
-To enhance traceability between the manuscript and the software implementation, the table below provides a detailed mapping between each functional module shown in Figure 2 (Software Workflow) and Figure 4 (YOLO-based Pre-Annotation Process) and the corresponding code components in the repository:
+## 🧩 Module Mapping to Flowcharts (Figures 2 & 4)
 
-Flowchart Module	Code Location / Function	Description
-① Image Loader	main.py → openImage(), openDir()	Loads individual images or directories into the interface
-② Image Preprocessing	enhance/filters.py, main.py → enhance_contrast()	Includes denoising, grayscale stretching, pseudo-color, sharpening, etc.
-③ Annotation Tools	annotate/rectangle.py, annotate/polygon.py	Tools for drawing and saving bounding boxes (XML) and polygons (JSON)
-④ YOLO Pre-Annotation	yolo/yolo_predict.py, weights/yolov8.pt	Performs inference using YOLOv8 model for automated pre-annotation
-⑤ Post-Annotation Refinement	main.py → refine_annotations()	Users can manually adjust YOLO predictions
-⑥ Save & Export Annotations	main.py → saveAnnotations()	Saves annotation results in standard XML/JSON formats
-System UI Logic (Fig. 4 overall)	main.py, qt_designer.ui, mainwindow.py	Manages the graphical interface and user interaction flow
+To enhance traceability between the manuscript and the software implementation, the following table maps each functional module from Figure 2 (*Software Workflow*) and Figure 4 (*YOLO-based Pre-Annotation Process*) to its implementation in the codebase:
+
+| Step | Flowchart Module               | Code Location                                | Description                                                                 |
+|------|--------------------------------|----------------------------------------------|-----------------------------------------------------------------------------|
+| ①    | Image Loader                  | `main.py → openImage(), openDir()`           | Load individual images or directories into the interface                   |
+| ②    | Image Preprocessing           | `enhance/filters.py`, `main.py → enhance_*()`| Apply filters: denoising, grayscale stretching, pseudo-color, sharpening   |
+| ③    | Annotation Tools              | `annotate/rectangle.py`, `annotate/polygon.py`| Tools for drawing/saving boxes (XML) and polygons (JSON)                  |
+| ④    | YOLO Pre-Annotation           | `yolo/yolo_predict.py`, `weights/yolov8.pt`  | YOLOv8 inference for automated pre-annotation                              |
+| ⑤    | Post-Annotation Refinement    | `main.py → refine_annotations()`             | Manually adjust predicted results                                           |
+| ⑥    | Save & Export Annotations     | `main.py → saveAnnotations()`                | Save in XML/JSON/YOLO formats                                              |
+| ⑦    | System UI Logic               | `main.py`, `mainwindow.py`, `qt_designer.ui` | Manage UI flow and module interactions                                     |
+
 
 ## 🔧 Configuration
 Adjust defaults in `libs/config.py` (paths, tiling size, enhancement presets, language).  
