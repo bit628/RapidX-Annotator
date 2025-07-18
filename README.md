@@ -81,6 +81,25 @@ conda activate rapidx
 5. **Export annotations** – *File ▸ Export…* choose VOC, COCO, YOLO or Seg.
 
 ---
+
+# 📘 Documentation Figures
+
+This folder contains key figures referenced in the manuscript to illustrate the system design and deep learning integration of **RapidX Annotator**.
+
+---
+
+## 🧩 Figure 2: Flowchart of System Architecture
+
+
+This figure shows the modular architecture of the RapidX Annotator software, including image input, enhancement modules, annotation tools, pre-annotation via YOLO, and export interfaces.
+
+---
+
+## 🤖 Figure 4: Annotation Workflow and Deep Learning Integration
+
+
+This figure demonstrates the pre-annotation process using the YOLO model and the integration of deep learning inference with manual refinement, forming a human-in-the-loop annotation pipeline.
+
 ## 🧩 Module Mapping to Flowcharts (Figures 2 & 4)
 
 To enhance traceability between the manuscript and the software implementation, the following table maps each functional module from Figure 2 (*Flowchart of System Architecture*) and Figure 4 (*Annotation Workflow and Deep Learning Integration*) to its implementation in the codebase:
