@@ -83,17 +83,18 @@ conda activate rapidx
 ---
 ## 🧩 Module Mapping to Flowcharts (Figures 2 & 4)
 
-To enhance traceability between the manuscript and the software implementation, the following table maps each functional module from Figure 2 (*Software Workflow*) and Figure 4 (*YOLO-based Pre-Annotation Process*) to its implementation in the codebase:
+To enhance traceability between the manuscript and the software implementation, the following table maps each functional module from Figure 2 (*Flowchart of System Architecture*) and Figure 4 (*Annotation Workflow and Deep Learning Integration*) to its implementation in the codebase:
 
-| Step | Flowchart Module               | Code Location                                | Description                                                                 |
-|------|--------------------------------|----------------------------------------------|-----------------------------------------------------------------------------|
-| ①    | Image Loader                  | `main.py → openImage(), openDir()`           | Load individual images or directories into the interface                   |
-| ②    | Image Preprocessing           | `enhance/filters.py`, `main.py → enhance_*()`| Apply filters: denoising, grayscale stretching, pseudo-color, sharpening   |
-| ③    | Annotation Tools              | `annotate/rectangle.py`, `annotate/polygon.py`| Tools for drawing/saving boxes (XML) and polygons (JSON)                  |
-| ④    | YOLO Pre-Annotation           | `yolo/yolo_predict.py`, `weights/yolov8.pt`  | YOLOv8 inference for automated pre-annotation                              |
-| ⑤    | Post-Annotation Refinement    | `main.py → refine_annotations()`             | Manually adjust predicted results                                           |
-| ⑥    | Save & Export Annotations     | `main.py → saveAnnotations()`                | Save in XML/JSON/YOLO formats                                              |
-| ⑦    | System UI Logic               | `main.py`, `mainwindow.py`, `qt_designer.ui` | Manage UI flow and module interactions                                     |
+| Step | Flowchart Module               | Code Location                                      | Description                                                                 |
+|------|--------------------------------|----------------------------------------------------|-----------------------------------------------------------------------------|
+| ①    | Image Loader                  | `readimage.py → open_image(), open_folder()`       | Load single images or directories into the UI                              |
+| ②    | Image Preprocessing           | `enhance.py → enhance_contrast(), sharpen(), ...`  | Apply denoising, grayscale stretching, pseudo-color, sharpening, etc.      |
+| ③    | Annotation Tools              | `label.py → draw_rect(), draw_polygon()`           | Draw and edit bounding boxes (XML) and polygons (JSON)                     |
+| ④    | YOLO Pre-Annotation           | `predict.py → yolo_predict()`                      | Load YOLO model and perform automated defect pre-annotation                |
+| ⑤    | Post-Annotation Refinement    | `label.py`, `main.py → refine_annotations()`       | Manually adjust and correct predicted results                              |
+| ⑥    | Save & Export Annotations     | `main.py → save_annotations()`                     | Save annotations as XML, JSON, or YOLO format                              |
+| ⑦    | System UI & Workflow Logic    | `main.py`, `view/`, `libs/view/`                   | Manage UI flow, button logic, interactions, and logging                    |
+
 
 
 ## 🔧 Configuration
