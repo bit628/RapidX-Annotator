@@ -1,157 +1,164 @@
-# RapidX Annotator
-*Industrial radiographic image annotation & enhancement toolkit*
+<p align="center">
+  <img src="docs/rapidx-cover.png" alt="RapidX Annotator — Industrial Radiographic Image Annotation & Enhancement" width="100%">
+</p>
 
-![build](https://img.shields.io/github/actions/workflow/status/yourname/rapidx-annotator/ci.yml?label=CI)
-![license](https://img.shields.io/github/license/yourname/rapidx-annotator)
+<p align="center">
+  <a href="https://www.python.org/"><img alt="Python 3.8+" src="https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white"></a>
+  <a href="https://www.qt.io/qt-for-python"><img alt="PyQt5" src="https://img.shields.io/badge/GUI-PyQt5-41CD52?logo=qt&logoColor=white"></a>
+  <a href="https://doi.org/10.1016/j.softx.2025.102328"><img alt="SoftwareX paper" src="https://img.shields.io/badge/SoftwareX-10.1016%2Fj.softx.2025.102328-0A66C2"></a>
+  <img alt="Non-destructive testing" src="https://img.shields.io/badge/Domain-Industrial%20NDT-F59E0B">
+</p>
 
-> **Made with ❤️ for non‑destructive testing (NDT) researchers and practitioners.**
+<p align="center">
+  <strong>RapidX Annotator</strong> is a desktop research tool for inspecting, enhancing, and annotating industrial radiographic images.<br>
+  面向工业射线图像的查看、增强与缺陷标注工具。
+</p>
 
----
-
-## ✨ Features
-
-- **One‑click YOLO pre‑annotation** – batch infer bounding boxes or segmentation masks with any YOLOv5/v8 weights.
-- **Flexible manual annotation** – rectangle, polygon, point; copy‑paste, snapping, length/area overlay.
-- **Real‑time enhancement panel** – contrast‑stretch, gamma, pseudo‑color, denoise, sharpen … instant preview without altering raw data.
-- **Ultra‑large radiograph tiling** – slice >10 k × k images, annotate patch‑wise, then auto‑merge to original coordinates.
-- **Multi‑format export** – Pascal‑VOC XML, COCO JSON, YOLO txt, PNG mask.
-- **Bilingual UI** – English / 中文 with editable class‑name mapping.
-- **Action log & optional user login** – traceable annotation history for QA.
-
-
-## 🖼️ Screenshot
-
-![Main window](docs/screenshot_main.png)
-
-
-## 🗂️ Directory structure
-```text
-github/
-├─ main.py                # application entry (PyQt)
-├─ classes.txt            # default defect classes (中文)
-├─ classes_en2ch.txt      # EN ↔ ZH label map
-├─ libs/                  # core libraries
-│  ├─ predict.py          # YOLO / PaddleX inference wrapper
-│  ├─ enhance.py          # image‑enhancement ops
-│  ├─ divideimage.py      # large‑image tiling
-│  ├─ lab/                # I/O for XML / JSON / mask
-│  └─ view/               # QGraphics items & scene
-└─ wins/                  # GUI windows + Qt Designer *.ui
-```
+<p align="center">
+  <a href="https://cqic.bit.edu.cn/kjcx/yjsgk/59d317c8119d4b49974700f9dd24e1cf.htm"><strong>Research Institute / 课题组</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://drive.google.com/drive/folders/1LNUt101wufTBJpRAgrZAU1h-Tfx629wO?usp=sharing"><strong>SWRD Dataset / 数据集</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://doi.org/10.1016/j.softx.2025.102328"><strong>Software Paper</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://doi.org/10.1007/s10921-025-01186-w"><strong>Dataset Paper</strong></a>
+</p>
 
 ---
 
-## ⚡ Installation
+## Overview
 
-### Prerequisites
-* Python ≥ 3.8
-* Git
-* (Optional) NVIDIA GPU + CUDA 11.x for faster inference
+RapidX Annotator supports a practical human-in-the-loop workflow for non-destructive testing (NDT): open radiographic images, improve defect visibility, create or refine annotations, and save structured labels for downstream analysis and model development.
 
-### 1 · Clone & install dependencies
+### Highlights
+
+- **Radiography-focused image viewing** for TIFF, DICOM/DICONDE, PNG, JPEG, and BMP files.
+- **Manual annotation tools** for bounding boxes and polygon regions.
+- **Standard label output** in Pascal VOC XML and JSON formats.
+- **Interactive enhancement** including contrast adjustment, denoising, sharpening, grayscale conversion, pseudo-color rendering, and positive/negative display.
+- **Geometric operations and inspection aids** including rotation, flipping, zooming, and local signal-to-noise measurement.
+- **Batch prediction integration** for model-assisted pre-annotation and subsequent manual refinement.
+- **Custom defect classes, user management, and operation logs** for repeatable annotation workflows.
+
+> [!NOTE]
+> The current public source tree contains the batch-prediction interface, but does not include all referenced model implementations or trained weights. Provide the corresponding model modules and weights before enabling AI-assisted pre-annotation.
+
+## Companion SWRD dataset
+
+The **SWRD (Seam Weld Radiographic Dataset)** is a companion resource for weld-defect research. It contains **3,675 original seam-weld X-ray images**, covering standard seam welds and T-joint seam welds. Polygon annotations identify six common defect types—porosity, inclusion, crack, undercut, lack of fusion, and lack of penetration—supporting research in classification, object detection, and instance segmentation.
+
+- **Download:** [SWRD dataset on Google Drive](https://drive.google.com/drive/folders/1LNUt101wufTBJpRAgrZAU1h-Tfx629wO?usp=sharing)
+- **Dataset paper:** [SWRD: A Dataset of Radiographic Image of Seam Weld for Defect Detection](https://doi.org/10.1007/s10921-025-01186-w)
+
+Please review the dataset provider's terms and cite the dataset paper when using the data in research.
+
+## Installation
+
+The current codebase targets **Windows** because several modules depend on `pywin32`.
+
 ```bash
-git clone https://github.com/yourname/rapidx-annotator.git
-cd rapidx-annotator
+git clone https://github.com/bit628/RapidX-Annotator.git
+cd RapidX-Annotator
 
-pip install -r requirements.txt  # PyQt5, opencv-python, ultralytics …
+python -m venv .venv
+.venv\Scripts\activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 
-# Windows‑specific: install pywin32
-pip install pywin32   # auto‑skipped on Linux / macOS
-```
-> For GPU inference install **torch** matching your CUDA version *before* `ultralytics`.
-
-### 2 · Launch GUI
-```bash
+cd src
 python main.py
 ```
 
-### 3 · (Optional) Conda virtual environment
-```bash
-conda create -n rapidx python=3.10
-conda activate rapidx
+Python 3.8 or newer is recommended. For model-assisted prediction, install the framework and model-specific dependencies required by your local model implementation.
+
+## Typical workflow
+
+1. Define or edit defect categories in the class manager.
+2. Open one radiograph or a folder of supported images.
+3. Apply display enhancement to make low-contrast indications easier to inspect.
+4. Draw or refine rectangular and polygon annotations.
+5. Save annotations as XML or JSON alongside the source images or in a selected output directory.
+6. Optionally configure a compatible model for batch pre-annotation.
+
+## Repository structure
+
+```text
+RapidX-Annotator/
+├── demo_data/              # Small radiographic-image examples
+├── docs/                   # Architecture figures and project artwork
+├── requirements.txt
+└── src/
+    ├── main.py             # PyQt application entry point
+    ├── classes.txt         # Default defect classes
+    ├── classes_en2ch.txt   # English-to-Chinese class mapping
+    ├── libs/
+    │   ├── enhance.py      # Image-enhancement algorithms
+    │   ├── predict.py      # Batch prediction integration
+    │   ├── label.py        # Annotation save/load workflow
+    │   ├── divideimage.py  # Large-image tiling utilities
+    │   ├── lab/            # XML/JSON and image I/O
+    │   └── view/           # Annotation graphics and scenes
+    └── wins/               # Application windows and generated UI code
 ```
 
----
+## Architecture
 
-## 🚀 Typical workflow
-1. **Create / edit classes** – *Class Window* → save `classes.txt`.
-2. **Import images** – *File ▸ Open folder…*.
-3. *(Optional)* **Run YOLO pre‑label** – *Tools ▸ Predict…*.
-4. **Refine labels** – draw / edit with mouse & keyboard shortcuts.
-5. **Export annotations** – *File ▸ Export…* choose VOC, COCO, YOLO or Seg.
+<details>
+<summary>View the system architecture and annotation workflow</summary>
 
----
+### System architecture
 
-# 📘 Documentation Figures
+![Flowchart of the RapidX Annotator system architecture](docs/Fig%202%20Flowchart%20of%20System%20Architecture.jpg)
 
-This folder contains key figures referenced in the manuscript to illustrate the system design and deep learning integration of **RapidX Annotator**.
+### Annotation workflow and deep-learning integration
 
----
+![RapidX Annotator annotation workflow and deep-learning integration](docs/Fig%204%20Annotation%20Workflow%20and%20Deep%20Learning%20Integration.jpg)
 
-## 🧩 Figure 2: Flowchart of System Architecture
+</details>
 
+## Publications and citation
 
-This figure shows the modular architecture of the RapidX Annotator software, including image input, enhancement modules, annotation tools, pre-annotation via YOLO, and export interfaces.
+If RapidX Annotator supports your work, please cite the SoftwareX article:
 
----
-
-## 🤖 Figure 4: Annotation Workflow and Deep Learning Integration
-
-
-This figure demonstrates the pre-annotation process using the YOLO model and the integration of deep learning inference with manual refinement, forming a human-in-the-loop annotation pipeline.
-
-## 🧩 Module Mapping to Flowcharts (Figures 2 & 4)
-
-To enhance traceability between the manuscript and the software implementation, the following table maps each functional module from Figure 2 (*Flowchart of System Architecture*) and Figure 4 (*Annotation Workflow and Deep Learning Integration*) to its implementation in the codebase:
-
-| Step | Flowchart Module               | Code Location                                      | Description                                                                 |
-|------|--------------------------------|----------------------------------------------------|-----------------------------------------------------------------------------|
-| ①    | Image Loader                  | `readimage.py → open_image(), open_folder()`       | Load single images or directories into the UI                              |
-| ②    | Image Preprocessing           | `enhance.py → enhance_contrast(), sharpen(), ...`  | Apply denoising, grayscale stretching, pseudo-color, sharpening, etc.      |
-| ③    | Annotation Tools              | `label.py → draw_rect(), draw_polygon()`           | Draw and edit bounding boxes (XML) and polygons (JSON)                     |
-| ④    | YOLO Pre-Annotation           | `predict.py → yolo_predict()`                      | Load YOLO model and perform automated defect pre-annotation                |
-| ⑤    | Post-Annotation Refinement    | `label.py`, `main.py → refine_annotations()`       | Manually adjust and correct predicted results                              |
-| ⑥    | Save & Export Annotations     | `main.py → save_annotations()`                     | Save annotations as XML, JSON, or YOLO format                              |
-| ⑦    | System UI & Workflow Logic    | `main.py`, `view/`, `libs/view/`                   | Manage UI flow, button logic, interactions, and logging                    |
-
-
-
-## 🔧 Configuration
-Adjust defaults in `libs/config.py` (paths, tiling size, enhancement presets, language).  
-Most options can be overridden via environment variables – see inline comments.
-
----
-
----
-
-## 📄 License
-
-Source code released under the **GNU Affero General Public License v3.0** – see `LICENSE`.
-
-### Patent notice
-Algorithm covered by Chinese patent **ZL 2023 1 0448168.8** is **free for academic and research purposes**.  
-**Commercial use** (including deployment in proprietary products or cloud services) **requires a separate written license** from the patent holder. Contact <your-email@example.com> for details.
-
----
-
-## 📝 Citation
 ```bibtex
-@software{yu_rapidx_annotator_2025,
-  author = {Xinghua Yu and Contributors},
-  title  = {RapidX Annotator: Industrial Radiographic Image Annotation & Enhancement Toolkit},
-  year   = 2025,
-  url    = {https://github.com/yourname/rapidx-annotator},
+@article{li2025rapidx,
+  title   = {RapidX annotator: A specialized software tool for industrial radiographic image annotation and enhancement},
+  author  = {Li, Yan and Qiu, Hao and Wang, Xu and Dong, Na and Yu, Xinghua},
+  journal = {SoftwareX},
+  volume  = {31},
+  pages   = {102328},
+  year    = {2025},
+  doi     = {10.1016/j.softx.2025.102328}
 }
 ```
 
----
+For the companion dataset:
 
-## 🙏 Acknowledgements
-- [Ultralytics YOLO](https://github.com/ultralytics/ultralytics)
-- [PaddleX](https://github.com/PaddlePaddle/PaddleX)
-- [PyQt5](https://www.riverbankcomputing.com/software/pyqt)
-- [OpenCV](https://opencv.org/)
+```bibtex
+@article{zhao2025swrd,
+  title   = {SWRD: A Dataset of Radiographic Image of Seam Weld for Defect Detection},
+  author  = {Zhao, Xuefeng and Wu, Juntao and Zhang, Baoxin and Wen, Haoyu and Wang, Xiaopeng and Li, Yan and Yu, Xinghua},
+  journal = {Journal of Nondestructive Evaluation},
+  volume  = {44},
+  number  = {2},
+  pages   = {50},
+  year    = {2025},
+  doi     = {10.1007/s10921-025-01186-w}
+}
+```
 
----
-<sub>© 2025 Xinghua Yu & Contributors · Released under AGPL‑3.0 · All trademarks are property of their respective owners.</sub>
+## Research group
+
+RapidX Annotator and SWRD are open research outputs from the **Institute of Arc Cognitive Manufacturing, Chongqing Innovation Center, Beijing Institute of Technology**.
+
+- [Institute website / 电弧认知制造技术研究所](https://cqic.bit.edu.cn/kjcx/yjsgk/59d317c8119d4b49974700f9dd24e1cf.htm)
+- [Chongqing Innovation Center, Beijing Institute of Technology](https://cqic.bit.edu.cn/)
+
+## License
+
+The repository's `LICENSE.txt` is currently empty. Reuse terms are therefore not yet stated clearly in this public source tree. Please contact the maintainers before redistribution or commercial use, and replace this notice once an approved open-source license has been added.
+
+## Acknowledgements
+
+RapidX Annotator builds on the Python scientific-computing ecosystem, including PyQt, OpenCV, NumPy, SciPy, pydicom, nibabel, and PaddleX.
 
