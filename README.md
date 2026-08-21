@@ -2,6 +2,10 @@
   <img src="docs/rapidx-cover.png" alt="RapidX Annotator — Industrial Radiographic Image Annotation & Enhancement" width="100%">
 </p>
 
+<h3 align="center">
+  <a href="http://znhj.tz-ndt.com/">Visit Our Research Group Website / 访问课题组官网</a>
+</h3>
+
 <p align="center">
   <a href="https://www.python.org/"><img alt="Python 3.8+" src="https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white"></a>
   <a href="https://www.qt.io/qt-for-python"><img alt="PyQt5" src="https://img.shields.io/badge/GUI-PyQt5-41CD52?logo=qt&logoColor=white"></a>
@@ -15,7 +19,7 @@
 </p>
 
 <p align="center">
-  <a href="https://cqic.bit.edu.cn/kjcx/yjsgk/59d317c8119d4b49974700f9dd24e1cf.htm"><strong>Research Institute / 课题组</strong></a>
+  <a href="http://znhj.tz-ndt.com/"><strong>Official Website / 课题组官网</strong></a>
   &nbsp;·&nbsp;
   <a href="https://drive.google.com/drive/folders/1LNUt101wufTBJpRAgrZAU1h-Tfx629wO?usp=sharing"><strong>SWRD Dataset / 数据集</strong></a>
   &nbsp;·&nbsp;
@@ -151,6 +155,7 @@ For the companion dataset:
 
 RapidX Annotator and SWRD are open research outputs from the **Institute of Arc Cognitive Manufacturing, Chongqing Innovation Center, Beijing Institute of Technology**.
 
+- [Research group website / 课题组官网](http://znhj.tz-ndt.com/)
 - [Institute website / 电弧认知制造技术研究所](https://cqic.bit.edu.cn/kjcx/yjsgk/59d317c8119d4b49974700f9dd24e1cf.htm)
 - [Chongqing Innovation Center, Beijing Institute of Technology](https://cqic.bit.edu.cn/)
 
@@ -161,4 +166,3 @@ The repository's `LICENSE.txt` is currently empty. Reuse terms are therefore not
 ## Acknowledgements
 
 RapidX Annotator builds on the Python scientific-computing ecosystem, including PyQt, OpenCV, NumPy, SciPy, pydicom, nibabel, and PaddleX.
-
