@@ -1,0 +1,26 @@
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local runtime records (already tracked historical files require separate cleanup)
+src/users.txt
+src/logs/*.txt
+
+# Local model artifacts
+*.onnx
+*.pdmodel
+*.pdparams
+*.pth
+*.pt

@@ -1,0 +1,60 @@
+name: Feature request / 功能建议
+description: Propose a focused improvement to RapidX Annotator
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the research or annotation need first, then the proposed interface or behavior.
+  - type: checkboxes
+    id: existing
+    attributes:
+      label: Existing request check
+      options:
+        - label: I searched the existing issues and did not find the same request.
+          required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Image formats and import
+        - Annotation tools
+        - Image enhancement
+        - Export formats
+        - Model integration
+        - User experience
+        - Documentation or examples
+        - Dataset workflow
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or research need
+      description: What is difficult or impossible in the current workflow?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the desired behavior and, if useful, a simple workflow example.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add safe mockups, references, or anonymized examples. Do not upload restricted data.
+    validations:
+      required: false

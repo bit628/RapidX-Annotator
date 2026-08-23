@@ -1,71 +1,76 @@
 <p align="center">
-  <img src="docs/rapidx-cover.png" alt="RapidX Annotator — Industrial Radiographic Image Annotation & Enhancement" width="100%">
+  <a href="http://znhj.tz-ndt.com/">
+    <img src="docs/rapidx-cover.png" alt="RapidX Annotator — Industrial Radiographic Image Annotation & Enhancement" width="100%">
+  </a>
 </p>
 
-<h3 align="center">
-  <a href="http://znhj.tz-ndt.com/">Visit Our Research Group Website / 访问课题组官网</a>
-</h3>
+<p align="center">
+  <strong>A desktop workspace for industrial radiographic image inspection, enhancement, and annotation.</strong><br>
+  面向工业射线图像查看、增强与缺陷标注的科研桌面工具。
+</p>
 
 <p align="center">
-  <a href="https://www.python.org/"><img alt="Python 3.8+" src="https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white"></a>
-  <a href="https://www.qt.io/qt-for-python"><img alt="PyQt5" src="https://img.shields.io/badge/GUI-PyQt5-41CD52?logo=qt&logoColor=white"></a>
+  <a href="https://www.microsoft.com/windows/"><img alt="Platform: Windows" src="https://img.shields.io/badge/Platform-Windows-0078D4?logo=windows11&logoColor=white"></a>
+  <a href="https://www.python.org/"><img alt="Source: Python" src="https://img.shields.io/badge/Source-Python-3776AB?logo=python&logoColor=white"></a>
+  <a href="https://www.qt.io/qt-for-python"><img alt="GUI: PyQt5" src="https://img.shields.io/badge/GUI-PyQt5-41CD52?logo=qt&logoColor=white"></a>
   <a href="https://doi.org/10.1016/j.softx.2025.102328"><img alt="SoftwareX paper" src="https://img.shields.io/badge/SoftwareX-10.1016%2Fj.softx.2025.102328-0A66C2"></a>
-  <img alt="Non-destructive testing" src="https://img.shields.io/badge/Domain-Industrial%20NDT-F59E0B">
+  <a href="https://doi.org/10.1007/s10921-025-01186-w"><img alt="SWRD dataset paper" src="https://img.shields.io/badge/SWRD-Dataset%20Paper-F59E0B"></a>
 </p>
 
 <p align="center">
-  <strong>RapidX Annotator</strong> is a desktop research tool for inspecting, enhancing, and annotating industrial radiographic images.<br>
-  面向工业射线图像的查看、增强与缺陷标注工具。
-</p>
-
-<p align="center">
-  <a href="http://znhj.tz-ndt.com/"><strong>Official Website / 课题组官网</strong></a>
+  <a href="http://znhj.tz-ndt.com/"><strong>Research Group Website / 课题组官网</strong></a>
   &nbsp;·&nbsp;
   <a href="https://drive.google.com/drive/folders/1LNUt101wufTBJpRAgrZAU1h-Tfx629wO?usp=sharing"><strong>SWRD Dataset / 数据集</strong></a>
   &nbsp;·&nbsp;
-  <a href="https://doi.org/10.1016/j.softx.2025.102328"><strong>Software Paper</strong></a>
+  <a href="#quick-start"><strong>Quick Start</strong></a>
   &nbsp;·&nbsp;
-  <a href="https://doi.org/10.1007/s10921-025-01186-w"><strong>Dataset Paper</strong></a>
+  <a href="#publications-and-citation"><strong>Publications</strong></a>
+  &nbsp;·&nbsp;
+  <a href="CONTRIBUTING.md"><strong>Contributing</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/bit628/RapidX-Annotator/issues/new/choose"><strong>Report an Issue</strong></a>
 </p>
 
 ---
 
 ## Overview
 
-RapidX Annotator supports a practical human-in-the-loop workflow for non-destructive testing (NDT): open radiographic images, improve defect visibility, create or refine annotations, and save structured labels for downstream analysis and model development.
+RapidX Annotator supports a practical human-in-the-loop workflow for non-destructive testing (NDT): open industrial radiographs, improve defect visibility, create or refine annotations, and save structured labels for downstream analysis and model development.
 
-### Highlights
-
-- **Radiography-focused image viewing** for TIFF, DICOM/DICONDE, PNG, JPEG, and BMP files.
-- **Manual annotation tools** for bounding boxes and polygon regions.
-- **Standard label output** in Pascal VOC XML and JSON formats.
-- **Interactive enhancement** including contrast adjustment, denoising, sharpening, grayscale conversion, pseudo-color rendering, and positive/negative display.
-- **Geometric operations and inspection aids** including rotation, flipping, zooming, and local signal-to-noise measurement.
-- **Batch prediction integration** for model-assisted pre-annotation and subsequent manual refinement.
-- **Custom defect classes, user management, and operation logs** for repeatable annotation workflows.
+| At a glance | Details |
+| --- | --- |
+| **Platform** | Windows desktop; several modules depend on `pywin32` |
+| **Image input** | TIFF/TIF, DICOM/DICONDE, PNG, JPEG, and BMP |
+| **Annotation** | Bounding boxes and polygon regions |
+| **Label output** | Pascal VOC XML and JSON |
+| **Companion data** | SWRD: 3,675 seam-weld radiographs with six defect classes |
+| **Project status** | Research source release; model modules and trained weights are not bundled |
 
 > [!NOTE]
-> The current public source tree contains the batch-prediction interface, but does not include all referenced model implementations or trained weights. Provide the corresponding model modules and weights before enabling AI-assisted pre-annotation.
+> The public source tree includes the batch-prediction interface, but not every referenced model implementation or trained weight. Manual annotation and image-processing code are included; AI-assisted pre-annotation requires a compatible local model setup.
 
-## Companion SWRD dataset
+## Highlights
 
-The **SWRD (Seam Weld Radiographic Dataset)** is a companion resource for weld-defect research. It contains **3,675 original seam-weld X-ray images**, covering standard seam welds and T-joint seam welds. Polygon annotations identify six common defect types—porosity, inclusion, crack, undercut, lack of fusion, and lack of penetration—supporting research in classification, object detection, and instance segmentation.
+| Capability | What RapidX provides |
+| --- | --- |
+| **Radiography workspace** | Large-image viewing, zooming, rotation, flipping, and local signal-to-noise inspection |
+| **Flexible annotation** | Rectangle and polygon tools with configurable defect classes |
+| **Image enhancement** | Contrast adjustment, denoising, sharpening, grayscale, pseudo-color, and positive/negative display |
+| **Research workflow** | XML/JSON export, user management, operation logs, and an interface for model-assisted pre-annotation |
 
-- **Download:** [SWRD dataset on Google Drive](https://drive.google.com/drive/folders/1LNUt101wufTBJpRAgrZAU1h-Tfx629wO?usp=sharing)
-- **Dataset paper:** [SWRD: A Dataset of Radiographic Image of Seam Weld for Defect Detection](https://doi.org/10.1007/s10921-025-01186-w)
+## Quick start
 
-Please review the dataset provider's terms and cite the dataset paper when using the data in research.
+RapidX Annotator is currently distributed as a **research source snapshot**, not as a packaged Windows installer.
 
-## Installation
+> [!IMPORTANT]
+> `requirements.txt` preserves legacy and model-specific dependency pins, including both Qt generations and PaddleX-related packages. It has not yet been normalized into a portable lock file. Use an isolated Windows environment and review the dependency versions for your Python and model stack before installation.
 
-The current codebase targets **Windows** because several modules depend on `pywin32`.
-
-```bash
+```powershell
 git clone https://github.com/bit628/RapidX-Annotator.git
 cd RapidX-Annotator
 
 python -m venv .venv
-.venv\Scripts\activate
+.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 
@@ -73,24 +78,53 @@ cd src
 python main.py
 ```
 
-Python 3.8 or newer is recommended. For model-assisted prediction, install the framework and model-specific dependencies required by your local model implementation.
+If the full dependency snapshot conflicts with your environment, install the application dependencies in a dedicated environment and configure PaddleX/model dependencies separately. See [Contributing](CONTRIBUTING.md) before proposing dependency changes.
+
+## Companion SWRD dataset
+
+The **SWRD (Seam Weld Radiographic Dataset)** is the companion resource for weld-defect research.
+
+| **3,675 images** | **2 weld forms** | **6 defect classes** | **3 research tasks** |
+| :---: | :---: | :---: | :---: |
+| Original X-ray images | Standard and T-joint seam welds | Porosity, inclusion, crack, undercut, lack of fusion, lack of penetration | Classification, detection, segmentation |
+
+- **Download:** [SWRD dataset on Google Drive](https://drive.google.com/drive/folders/1LNUt101wufTBJpRAgrZAU1h-Tfx629wO?usp=sharing)
+- **Cite:** [SWRD: A Dataset of Radiographic Image of Seam Weld for Defect Detection](https://doi.org/10.1007/s10921-025-01186-w)
+
+Please review the dataset provider's terms and cite the dataset paper when using the data in research.
 
 ## Typical workflow
 
 1. Define or edit defect categories in the class manager.
 2. Open one radiograph or a folder of supported images.
-3. Apply display enhancement to make low-contrast indications easier to inspect.
+3. Apply display enhancement to improve the visibility of low-contrast indications.
 4. Draw or refine rectangular and polygon annotations.
-5. Save annotations as XML or JSON alongside the source images or in a selected output directory.
+5. Save annotations as XML or JSON.
 6. Optionally configure a compatible model for batch pre-annotation.
 
-## Repository structure
+## Architecture and source layout
+
+<details>
+<summary><strong>View the system architecture and annotation workflow</strong></summary>
+
+### System architecture
+
+![Flowchart of the RapidX Annotator system architecture](docs/Fig%202%20Flowchart%20of%20System%20Architecture.jpg)
+
+### Annotation workflow and deep-learning integration
+
+![RapidX Annotator annotation workflow and deep-learning integration](docs/Fig%204%20Annotation%20Workflow%20and%20Deep%20Learning%20Integration.jpg)
+
+</details>
+
+<details>
+<summary><strong>View the repository structure</strong></summary>
 
 ```text
 RapidX-Annotator/
 ├── demo_data/              # Small radiographic-image examples
 ├── docs/                   # Architecture figures and project artwork
-├── requirements.txt
+├── requirements.txt        # Research dependency snapshot
 └── src/
     ├── main.py             # PyQt application entry point
     ├── classes.txt         # Default defect classes
@@ -105,24 +139,11 @@ RapidX-Annotator/
     └── wins/               # Application windows and generated UI code
 ```
 
-## Architecture
-
-<details>
-<summary>View the system architecture and annotation workflow</summary>
-
-### System architecture
-
-![Flowchart of the RapidX Annotator system architecture](docs/Fig%202%20Flowchart%20of%20System%20Architecture.jpg)
-
-### Annotation workflow and deep-learning integration
-
-![RapidX Annotator annotation workflow and deep-learning integration](docs/Fig%204%20Annotation%20Workflow%20and%20Deep%20Learning%20Integration.jpg)
-
 </details>
 
 ## Publications and citation
 
-If RapidX Annotator supports your work, please cite the SoftwareX article:
+GitHub users can select **Cite this repository** in the sidebar, powered by [`CITATION.cff`](CITATION.cff). If RapidX Annotator supports your work, please cite the SoftwareX article:
 
 ```bibtex
 @article{li2025rapidx,
@@ -151,9 +172,19 @@ For the companion dataset:
 }
 ```
 
+## Community and support
+
+| Need | Where to go |
+| --- | --- |
+| Report a reproducible bug | [Open a structured bug report](https://github.com/bit628/RapidX-Annotator/issues/new?template=01_bug_report.yml) |
+| Suggest an improvement | [Open a feature request](https://github.com/bit628/RapidX-Annotator/issues/new?template=02_feature_request.yml) |
+| Contribute code or documentation | Read [CONTRIBUTING.md](CONTRIBUTING.md) |
+| Report a vulnerability privately | Follow [SECURITY.md](SECURITY.md) |
+| Learn about the research group | Visit the [official website / 课题组官网](http://znhj.tz-ndt.com/) |
+
 ## Research group
 
-RapidX Annotator and SWRD are open research outputs from the **Institute of Arc Cognitive Manufacturing, Chongqing Innovation Center, Beijing Institute of Technology**.
+RapidX Annotator and SWRD are research outputs from the **Institute of Arc Cognitive Manufacturing, Chongqing Innovation Center, Beijing Institute of Technology**.
 
 - [Research group website / 课题组官网](http://znhj.tz-ndt.com/)
 - [Institute website / 电弧认知制造技术研究所](https://cqic.bit.edu.cn/kjcx/yjsgk/59d317c8119d4b49974700f9dd24e1cf.htm)
@@ -161,7 +192,7 @@ RapidX Annotator and SWRD are open research outputs from the **Institute of Arc 
 
 ## License
 
-The repository's `LICENSE.txt` is currently empty. Reuse terms are therefore not yet stated clearly in this public source tree. Please contact the maintainers before redistribution or commercial use, and replace this notice once an approved open-source license has been added.
+The repository's `LICENSE.txt` is currently empty, so reuse terms are not yet stated clearly in this source tree. Please contact the maintainers before redistribution or commercial use. This notice should be replaced when the research group approves an open-source license.
 
 ## Acknowledgements
 
