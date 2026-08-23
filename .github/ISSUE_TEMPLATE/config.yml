@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability / 安全漏洞
+    url: https://github.com/bit628/RapidX-Annotator/security/advisories/new
+    about: Report security-sensitive problems privately, not in a public issue.
+  - name: Research group website / 课题组官网
+    url: http://znhj.tz-ndt.com/
+    about: Learn more about the research group and its work.
+  - name: SWRD dataset / 数据集
+    url: https://drive.google.com/drive/folders/1LNUt101wufTBJpRAgrZAU1h-Tfx629wO?usp=sharing
+    about: Access the companion Seam Weld Radiographic Dataset.

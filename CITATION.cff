@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use RapidX Annotator in your research, please cite the SoftwareX article below."
+type: software
+title: "RapidX Annotator"
+authors:
+  - family-names: "Li"
+    given-names: "Yan"
+  - family-names: "Qiu"
+    given-names: "Hao"
+  - family-names: "Wang"
+    given-names: "Xu"
+  - family-names: "Dong"
+    given-names: "Na"
+  - family-names: "Yu"
+    given-names: "Xinghua"
+repository-code: "https://github.com/bit628/RapidX-Annotator"
+url: "http://znhj.tz-ndt.com/"
+abstract: "A desktop research tool for industrial radiographic image annotation, enhancement, and model-assisted pre-annotation workflows."
+keywords:
+  - "industrial radiography"
+  - "image annotation"
+  - "non-destructive testing"
+  - "weld defect detection"
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Li"
+      given-names: "Yan"
+    - family-names: "Qiu"
+      given-names: "Hao"
+    - family-names: "Wang"
+      given-names: "Xu"
+    - family-names: "Dong"
+      given-names: "Na"
+    - family-names: "Yu"
+      given-names: "Xinghua"
+  title: "RapidX annotator: A specialized software tool for industrial radiographic image annotation and enhancement"
+  journal: "SoftwareX"
+  volume: 31
+  year: 2025
+  doi: "10.1016/j.softx.2025.102328"

@@ -1,0 +1,92 @@
+name: Bug report / 错误报告
+description: Report a reproducible problem in RapidX Annotator
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve RapidX Annotator. Please remove private data, account details, and sensitive image paths before submitting.
+  - type: checkboxes
+    id: existing
+    attributes:
+      label: Existing issue check
+      options:
+        - label: I searched the existing issues and did not find the same problem.
+          required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected area
+      options:
+        - Application startup
+        - Image import or viewing
+        - Image enhancement
+        - Rectangle or polygon annotation
+        - XML or JSON export
+        - Model-assisted prediction
+        - User or logging workflow
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: revision
+    attributes:
+      label: Version or commit
+      description: Branch, commit hash, or download source used.
+      placeholder: main at abc1234
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: Windows 11 23H2, 64-bit
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python and environment
+      placeholder: Python version, virtual environment tool, relevant model framework version
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide the smallest reproducible sequence and a safe sample if possible.
+      placeholder: |
+        1. Start the application with ...
+        2. Open ...
+        3. Select ...
+        4. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs, traceback, or screenshots
+      description: Paste only the relevant excerpt. Remove usernames, credentials, private paths, and sensitive radiographic data.
+    validations:
+      required: false
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Data safety
+      options:
+        - label: I removed credentials, personal information, and restricted research data from this report.
+          required: true
